@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Components Classifier</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="./dropzone.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-icon">
+                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                    <rect x="9" y="9" width="6" height="6"></rect>
+                    <line x1="9" y1="2" x2="9" y2="4"></line>
+                    <line x1="15" y1="2" x2="15" y2="4"></line>
+                    <line x1="9" y1="20" x2="9" y2="22"></line>
+                    <line x1="15" y1="20" x2="15" y2="22"></line>
+                    <line x1="20" y1="9" x2="22" y2="9"></line>
+                    <line x1="20" y1="14" x2="22" y2="14"></line>
+                    <line x1="2" y1="9" x2="4" y2="9"></line>
+                    <line x1="2" y1="14" x2="4" y2="14"></line>
+                </svg>
+                <h1 class="header-title">Electronics Components Classifier</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Error message will be inserted here by JavaScript -->
+            <div id="error" class="error-message"></div>
+            
+            <div class="content-grid">
+                <!-- Upload Section -->
+                <div class="card">
+                    <form action="/file-upload" class="dropzone" id="dropzone">
+                        <div class="dz-message needsclick">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="upload-icon">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="upload-text">Drop files here or click to upload</p>
+                            <p class="upload-subtext">Supported formats: JPG, PNG</p>
+                        </div>
+                    </form>
+                    <div class="button-container">
+                        <button id="submitBtn" type="button" class="classify-button">Classify</button>
+                    </div>
+                </div>
+
+                <!-- Preview Section -->
+                <div class="card" id="resultHolder">
+                    <div class="preview-placeholder">
+                        <p>No image selected</p>
+                        <p class="preview-subtext">Upload an image to see preview</p>
+                    </div>
+                </div>
+
+                <!-- Results Section -->
+                <div class="card" id="divClassTable">
+                    <h2 class="results-title">Classification Results</h2>
+                    <table id="classTable" class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Probability Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Capacitor</td>
+                                <td id="score_capacitor">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 0%"></div>
+                                        <span class="progress-text">0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Diode</td>
+                                <td id="score_diode">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 0%"></div>
+                                        <span class="progress-text">0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Integrated Circuit</td>
+                                <td id="score_integrated_circuit">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 0%"></div>
+                                        <span class="progress-text">0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Resistor</td>
+                                <td id="score_resistor">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 0%"></div>
+                                        <span class="progress-text">0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Transistor</td>
+                                <td id="score_transistor">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 0%"></div>
+                                        <span class="progress-text">0%</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">Electronics Components Classifier © <span id="current-year"></span></p>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./dropzone.min.js"></script>
+    <script src="./app.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

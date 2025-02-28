@@ -1,0 +1,1 @@
+A Flask-based web application integrated with a transfer learning model to classify electronic components based on a provided image.

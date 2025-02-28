@@ -1,0 +1,6 @@
+.hintrc
+myenv/
+Models/
+src/__pycache__/
+requirements.txt
+.vscode/
